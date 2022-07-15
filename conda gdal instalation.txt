@@ -1,0 +1,3 @@
+# conda create -n chm_env
+# conda install -n chm_env geopandas
+# conda install -c conda-forge pdal python-pdal gdal entwine matplotlib
