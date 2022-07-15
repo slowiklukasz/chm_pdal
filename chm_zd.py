@@ -87,7 +87,7 @@ class DlgMain(QDialog, Ui_dlg_chm):
     def evt_btn_com_in_clicked(self):
         # fn, b_ok = QFileDialog.getOpenFileName(self, "Select file", "C:\\", "Lidar Files (*.las)")
         fn, b_ok = QFileDialog.getOpenFileName(self, "Select file", "C:\\Users\\lukas\\Desktop\\"
-                                                                    "PDAL  CHM", "Lidar files (*.las)")
+                                                                    "PDAL  CHM", "Lidar files (*.las, *.laz)")
         if b_ok:
             self.led_com_in.setText(fn)
 
@@ -163,7 +163,7 @@ class DlgMain(QDialog, Ui_dlg_chm):
     def evt_btn_lid_in_clicked(self):
         # fn, b_ok = QFileDialog.getOpenFileName(self, "Select file", "C:\\", "Lidar Files (*.las)")
         fn, b_ok = QFileDialog.getOpenFileName(self, "Select file", "C:\\Users\\lukas\\Desktop\\"
-                                                                    "PDAL  CHM", "Lidar files (*.las)")
+                                                                    "PDAL  CHM", "Lidar files (*.las, *.laz)")
         if b_ok:
             self.led_lid_in.setText(fn)
 
