@@ -276,7 +276,7 @@ def chm_segmentation(chm_fn, footprint, f_offset, truncate, compactness, line):
     Idea from https://www.neonscience.org/resources/learning-hub/tutorials/calc-biomass-py"""
 
     driver = gdal.GetDriverByName("GTiff")
-    chm_ds = gdal.Open(dsm_fn)
+    chm_ds = gdal.Open(chm_fn)
     chm_ds.GetRasterBand(1).SetNoDataValue(0)
     chm_array = chm_ds.GetRasterBand(1).ReadAsArray().astype(np.float32)
 
