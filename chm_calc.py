@@ -271,14 +271,14 @@ def chm_calculate(tmp_dtm_fn, dtm_fn, dsm_fn, chm_fn):
     print("CHM calculated successfully in {:.4f} sec\n".format(end - start))
 
 
-def chm_segmentation(dsm_fn, footprint, f_offset, truncate, compactness, line):
+def chm_segmentation(chm_fn, footprint, f_offset, truncate, compactness, line):
     """CHM ata filtering, masking and watershed segmentation.
     Idea from https://www.neonscience.org/resources/learning-hub/tutorials/calc-biomass-py"""
 
     driver = gdal.GetDriverByName("GTiff")
-    dsm_ds = gdal.Open(dsm_fn)
-    dsm_ds.GetRasterBand(1).SetNoDataValue(0)
-    chm_array = dsm_ds.GetRasterBand(1).ReadAsArray().astype(np.float32)
+    chm_ds = gdal.Open(dsm_fn)
+    chm_ds.GetRasterBand(1).SetNoDataValue(0)
+    chm_array = chm_ds.GetRasterBand(1).ReadAsArray().astype(np.float32)
 
     start = time.time()
     print("Watershed segmentation...")
@@ -315,7 +315,7 @@ def chm_segmentation(dsm_fn, footprint, f_offset, truncate, compactness, line):
     # CHANGING 0 VALUES TO -9999
     segments = np.where(labels == 0, -9999, labels)
 
-    dsm_ds = None
+    chm_ds = None
     end = time.time()
     print("CHM segmented in {:.4f} sec\n".format(end - start))
 
