@@ -247,7 +247,7 @@ def chm_calculate(tmp_dtm_fn, dtm_fn, dsm_fn, chm_fn):
     # CALCULATE CHM
     chm_data = dsm_data - dtm_data
     chm_data[chm_data <= 0] = np.NaN
-    chm_data = np.where(np.isfinite(chm_data), chm_data, -9999) # replacing nan with -9999
+    chm_data = np.where(np.isfinite(chm_data), chm_data, np.NaN) # replacing nan with -9999 -> np.NaN is enough
 
 
     # CREATE FILTERED RASTER AND SAVE DATA
