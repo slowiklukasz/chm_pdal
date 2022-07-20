@@ -141,7 +141,7 @@ class DlgMain(QDialog, Ui_dlg_chm):
             compactness = self.dbx_com_comp.value()
             line = self.cmb_seg_line.currentText()
 
-            segments = chm_calc.chm_segmentation(dsm_fn, footprint, f_offset, truncate, compactness, line)
+            segments = chm_calc.chm_segmentation(chm_fn, footprint, f_offset, truncate, compactness, line) # dsm_fn-> chm_fn
 
             # SAVE SEGMENTS TO NEW RASTER
             chm_calc.save_segments_to_raster(seg_tif_fn, segments, dsm_fn)
